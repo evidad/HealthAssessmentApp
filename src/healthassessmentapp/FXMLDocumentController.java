@@ -12,11 +12,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javax.xml.bind.JAXBException;
+import java.io.File;
 
 /**
  *
  * @author errol
  */
+
 public class FXMLDocumentController implements Initializable {
 
     HealthAssessmentLogic assessment;
@@ -90,6 +93,9 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private TextField triglycerideTextField;
+    
+    @FXML
+    private Label reportStatusLabel;
 
     @FXML
     void handleBloodGlucoseLevelButtonAction(ActionEvent event) {
@@ -170,7 +176,7 @@ public class FXMLDocumentController implements Initializable {
             cholestoralLDLLabelComment.setText("Invalid input. Please enter a valid number.");
         }
     }
-    
+
     @FXML
     void handleTriglycerideButtonAction(ActionEvent event) {
         try {
@@ -189,7 +195,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     void handleExitButtonAction(ActionEvent event) {
-
+        javafx.application.Platform.exit();
     }
 
     @FXML
@@ -199,9 +205,39 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     void handleSaveButtonAction(ActionEvent event) {
+        try {
+            // Prepare the health assessment report object
+            HealthAssessmentReport report = new HealthAssessmentReport(
+                    patientNameTextField.getText(),
+                    assessment.getBloodPressure(),
+                    assessment.bloodPressureReport(),
+                    assessment.getBodyMassIndex(),
+                    assessment.bodyMassIndexReport(),
+                    assessment.getGlucoseBloodSugar(),
+                    assessment.glucoseBloodSugarReport(),
+                    assessment.getCholestoralLDL(),
+                    assessment.cholesterolLDLReport(),
+                    assessment.getCholestoralHDL(),
+                    assessment.cholesterolHDLReport(),
+                    assessment.getTriglyceride(),
+                    assessment.triglycerideReport()
+            );
 
+            // Choose a file to save the XML
+            File file = new File("health_assessment_report.xml");
+
+            // Save the report to an XML file
+            JAXBHelper.saveReportToXML(report, file);
+
+            // Provide feedback to the user (you can show a label or alert)
+            System.out.println("Report saved successfully!");
+            
+            reportStatusLabel.setText("Report saved sucessfully!");
+
+        } catch (JAXBException e) {
+            System.out.println("Error saving the report: " + e.getMessage());
+            reportStatusLabel.setText("Error saving the report, please try again!");
+        }
     }
-
     
-
 }

@@ -8,6 +8,7 @@ package healthassessmentapp;
  *
  * @author errol
  */
+
 public class HealthAssessmentLogic {
 
     private String patientName;

@@ -42,5 +42,6 @@
       <Button fx:id="saveButton" layoutX="212.0" layoutY="450.0" mnemonicParsing="false" onAction="#handleSaveButtonAction" prefHeight="25.0" prefWidth="55.0" text="Save" />
       <Button fx:id="loadButton" layoutX="340.0" layoutY="450.0" mnemonicParsing="false" onAction="#handleLoadButtonAction" prefHeight="25.0" prefWidth="55.0" text="Load" />
       <Button fx:id="exitButton" layoutX="465.0" layoutY="450.0" mnemonicParsing="false" onAction="#handleExitButtonAction" prefHeight="25.0" prefWidth="55.0" text="Exit" />
+      <Label fx:id="reportStatusLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="213.0" layoutY="500.0" prefHeight="17.0" prefWidth="309.0" text="Label" textAlignment="CENTER" />
    </children>
 </AnchorPane>

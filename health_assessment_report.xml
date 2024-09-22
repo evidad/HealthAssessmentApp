@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<HealthAssessmentReport>
+    <bloodPressure>0.0</bloodPressure>
+    <bloodPressureReport>Please enter a valid blood pressure value</bloodPressureReport>
+    <bodyMassIndex>0.0</bodyMassIndex>
+    <bodyMassIndexReport>Underweight</bodyMassIndexReport>
+    <cholestoralHDL>0.0</cholestoralHDL>
+    <cholestoralHDLReport>Poor</cholestoralHDLReport>
+    <cholestoralLDL>0.0</cholestoralLDL>
+    <cholestoralLDLReport>Optimal</cholestoralLDLReport>
+    <glucoseBloodSugar>0.0</glucoseBloodSugar>
+    <glucoseBloodSugarReport>Please enter a valid glucose value</glucoseBloodSugarReport>
+    <patientName>Jane Doe</patientName>
+    <triglyceride>0.0</triglyceride>
+    <triglycerideReport>Optimal</triglycerideReport>
+</HealthAssessmentReport>
