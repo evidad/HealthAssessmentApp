@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="550.0" prefWidth="734.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="healthassessmentapp.FXMLDocumentController">
+   <children>
+      <Label layoutX="229.0" layoutY="67.0" text="Patient Name:" />
+      <Label layoutX="229.0" layoutY="14.0" text="Individual Health Assessment">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="102.0" layoutY="118.0" text="Blood Pressure" />
+      <Label layoutX="97.0" layoutY="172.0" text="Body Mass Index" />
+      <Label layoutX="101.0" layoutY="225.0" text="Cholestoral LDL" />
+      <Label layoutX="100.0" layoutY="277.0" text="Cholestoral HDL" />
+      <Label layoutX="90.0" layoutY="328.0" text="Blood Glucose Level" />
+      <Label layoutX="113.0" layoutY="383.0" text="Triglyceride" />
+      <TextField fx:id="patientNameTextField" layoutX="316.0" layoutY="63.0" />
+      <TextField fx:id="bloodPressureTextField" layoutX="225.0" layoutY="114.0" prefHeight="25.0" prefWidth="83.0" />
+      <TextField fx:id="bodyMassIndexTextField" layoutX="225.0" layoutY="168.0" prefHeight="25.0" prefWidth="83.0" />
+      <TextField fx:id="cholestoralLDLTextField" layoutX="225.0" layoutY="221.0" prefHeight="25.0" prefWidth="83.0" />
+      <TextField fx:id="cholestoralHDLTextField" layoutX="225.0" layoutY="273.0" prefHeight="25.0" prefWidth="83.0" />
+      <TextField fx:id="bloodGlucoseLevelTextField" layoutX="225.0" layoutY="324.0" prefHeight="25.0" prefWidth="83.0" />
+      <TextField fx:id="triglycerideTextField" layoutX="225.0" layoutY="379.0" prefHeight="25.0" prefWidth="83.0" />
+      <Button fx:id="bloodPressureButton" layoutX="340.0" layoutY="114.0" mnemonicParsing="false" onAction="#handleBloodPressureButtonAction" prefHeight="25.0" prefWidth="55.0" text="Enter" />
+      <Button fx:id="bodyMassIndexButton" layoutX="340.0" layoutY="168.0" mnemonicParsing="false" onAction="#handleBodyMassIndexButtonAction" prefHeight="25.0" prefWidth="55.0" text="Enter" />
+      <Button fx:id="cholestoralLDLButton" layoutX="340.0" layoutY="221.0" mnemonicParsing="false" onAction="#handleCholestoralLDLButtonAction" prefHeight="25.0" prefWidth="55.0" text="Enter" />
+      <Button fx:id="cholestoralHDLButton" layoutX="340.0" layoutY="273.0" mnemonicParsing="false" onAction="#handleCholestoralHDLButtonAction" prefHeight="25.0" prefWidth="55.0" text="Enter" />
+      <Button fx:id="bloodGlucoseLevelButton" layoutX="340.0" layoutY="324.0" mnemonicParsing="false" onAction="#handleBloodGlucoseLevelButtonAction" prefHeight="25.0" prefWidth="55.0" text="Enter" />
+      <Button fx:id="triglycerideButton" layoutX="340.0" layoutY="379.0" mnemonicParsing="false" onAction="#handleTriglycerideButtonAction" prefHeight="25.0" prefWidth="55.0" text="Enter" />
+      <Label fx:id="bloodPressureLabelComment" layoutX="436.0" layoutY="112.0" prefHeight="30.0" prefWidth="269.0" text="Label" />
+      <Label fx:id="bodyMassIndexLabelComment" layoutX="436.0" layoutY="166.0" prefHeight="30.0" prefWidth="269.0" text="Label" />
+      <Label fx:id="cholestoralLDLLabelComment" layoutX="436.0" layoutY="219.0" prefHeight="30.0" prefWidth="269.0" text="Label" />
+      <Label fx:id="cholesotralHDLLabelComment" layoutX="436.0" layoutY="271.0" prefHeight="30.0" prefWidth="269.0" text="Label" />
+      <Label fx:id="bloodGlucoseLevelComment" layoutX="436.0" layoutY="322.0" prefHeight="30.0" prefWidth="269.0" text="Label" />
+      <Label fx:id="triglycerideLabelComment" layoutX="436.0" layoutY="377.0" prefHeight="30.0" prefWidth="269.0" text="Label" />
+      <Button fx:id="saveButton" layoutX="212.0" layoutY="450.0" mnemonicParsing="false" onAction="#handleSaveButtonAction" prefHeight="25.0" prefWidth="55.0" text="Save" />
+      <Button fx:id="loadButton" layoutX="340.0" layoutY="450.0" mnemonicParsing="false" onAction="#handleLoadButtonAction" prefHeight="25.0" prefWidth="55.0" text="Load" />
+      <Button fx:id="exitButton" layoutX="465.0" layoutY="450.0" mnemonicParsing="false" onAction="#handleExitButtonAction" prefHeight="25.0" prefWidth="55.0" text="Exit" />
+   </children>
+</AnchorPane>
