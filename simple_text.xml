@@ -1,0 +1,4 @@
+<HealthAssessmentReport>
+    <patientName>John Doe</patientName>
+    <bloodPressure>120.0</bloodPressure>
+</HealthAssessmentReport>
