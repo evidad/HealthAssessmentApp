@@ -1,16 +1,1 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<HealthAssessmentReport>
-    <bloodPressure>120.0</bloodPressure>
-    <bloodPressureReport>Normal</bloodPressureReport>
-    <bodyMassIndex>24.0</bodyMassIndex>
-    <bodyMassIndexReport>Normal</bodyMassIndexReport>
-    <cholestoralHDL>90.0</cholestoralHDL>
-    <cholestoralHDLReport>Optimal</cholestoralHDLReport>
-    <cholestoralLDL>60.0</cholestoralLDL>
-    <cholestoralLDLReport>Optimal</cholestoralLDLReport>
-    <glucoseBloodSugar>100.0</glucoseBloodSugar>
-    <glucoseBloodSugarReport>Excellent</glucoseBloodSugarReport>
-    <patientName>John Doe</patientName>
-    <triglyceride>150.0</triglyceride>
-    <triglycerideReport>Borderline High</triglycerideReport>
-</HealthAssessmentReport>
+<HealthAssessmentReport><patientName>John Doe</patientName><bloodPressure>120.0</bloodPressure><bloodPressureComment>Normal</bloodPressureComment><bodyMassIndex>24.0</bodyMassIndex><bodyMassIndexComment>Normal</bodyMassIndexComment><cholestoralLDL>90.0</cholestoralLDL><cholestoralLDLComment>Optimal</cholestoralLDLComment><cholestoralHDL>60.0</cholestoralHDL><cholestoralHDLComment>Optimal</cholestoralHDLComment><glucoseBloodSugar>100.0</glucoseBloodSugar><glucoseBloodSugarComment>Excellent</glucoseBloodSugarComment><triglyceride>150.0</triglyceride><triglycerideComment>Borderline High</triglycerideComment></HealthAssessmentReport>
