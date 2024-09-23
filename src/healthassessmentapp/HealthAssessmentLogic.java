@@ -26,10 +26,7 @@ public class HealthAssessmentLogic {
     private final String[] glucoseBloodSugarComments = {"Excellent", "Good", "Marginal", "Poor", "Out of control"};
     private final String[] triglycerideComments = {"Very High", "High", "Borderline High", "Optimal"};
 
-    public HealthAssessmentLogic() {
-    }
-
-    ;
+    public HealthAssessmentLogic() {};
 
     public HealthAssessmentLogic(String patientName, double bloodPressure, double bodyMassIndex, double cholestoralLDL, double cholestoralHDL, double glucoseBloodSugar, double triglyceride) {
         this.patientName = patientName;
@@ -198,30 +195,11 @@ public class HealthAssessmentLogic {
                 200.0             // Triglyceride
         );
         
-        // Testing the blood pressure report
         System.out.println("Blood Pressure Report: " + assessment.bloodPressureReport());
-
-        // Testing the BMI report
         System.out.println("BMI Report: " + assessment.bodyMassIndexReport());
-
-        // Testing the cholesterol LDL report
         System.out.println("Cholesterol LDL Report: " + assessment.cholesterolLDLReport());
-
-        // Testing the cholesterol HDL report
         System.out.println("Cholesterol HDL Report: " + assessment.cholesterolHDLReport());
-
-        // Testing the glucose blood sugar report
         System.out.println("Glucose Blood Sugar Report: " + assessment.glucoseBloodSugarReport());
-
-        // Testing the triglyceride report
         System.out.println("Triglyceride Report: " + assessment.triglycerideReport());
-
-        // Update some values and test again
-        assessment.setPatientName("Jane Smith");
-        assessment.setBloodPressure(220);  // Set a value in the "Very severe" range for blood pressure
-
-        // Testing after updating values
-        System.out.println("\nUpdated Patient Info:");
-        System.out.println("Updated Blood Pressure Report: " + assessment.bloodPressureReport());
     }
 }

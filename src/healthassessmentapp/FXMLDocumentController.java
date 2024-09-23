@@ -13,15 +13,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import java.io.File;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
 /**
  *
  * @author errol
  */
+
 public class FXMLDocumentController implements Initializable {
 
     HealthAssessmentLogic assessment;
@@ -109,13 +107,9 @@ public class FXMLDocumentController implements Initializable {
     void handleBloodGlucoseLevelButtonAction(ActionEvent event) {
         try {
             double bloodGlucoseLevel = Double.parseDouble(bloodGlucoseLevelTextField.getText());
-
             assessment.setGlucoseBloodSugar(bloodGlucoseLevel);
-
             String bloodGlucoseLevelReport = assessment.glucoseBloodSugarReport();
-
             bloodGlucoseLevelComment.setText(bloodGlucoseLevelReport);
-
         } catch (NumberFormatException e) {
             bloodGlucoseLevelComment.setText("Invalid input. Please enter a valid number.");
         }
@@ -125,13 +119,9 @@ public class FXMLDocumentController implements Initializable {
     void handleBloodPressureButtonAction(ActionEvent event) {
         try {
             double bloodPressure = Double.parseDouble(bloodPressureTextField.getText());
-
             assessment.setBloodPressure(bloodPressure);
-
             String bloodPressureReport = assessment.bloodPressureReport();
-
             bloodPressureLabelComment.setText(bloodPressureReport);
-
         } catch (NumberFormatException e) {
             bloodPressureLabelComment.setText("Invalid input. Please enter a valid number.");
         }
@@ -141,13 +131,9 @@ public class FXMLDocumentController implements Initializable {
     void handleBodyMassIndexButtonAction(ActionEvent event) {
         try {
             double bodyMassIndex = Double.parseDouble(bodyMassIndexTextField.getText());
-
             assessment.setBodyMassIndex(bodyMassIndex);
-
             String bodyMassIndexReport = assessment.bodyMassIndexReport();
-
             bodyMassIndexLabelComment.setText(bodyMassIndexReport);
-
         } catch (NumberFormatException e) {
             bodyMassIndexLabelComment.setText("Invalid input. Please enter a valid number.");
         }
@@ -157,13 +143,9 @@ public class FXMLDocumentController implements Initializable {
     void handleCholestoralHDLButtonAction(ActionEvent event) {
         try {
             double cholestoralHDL = Double.parseDouble(cholestoralHDLTextField.getText());
-
             assessment.setCholestoralHDL(cholestoralHDL);
-
             String cholestoralHDLReport = assessment.cholesterolHDLReport();
-
             cholesotralHDLLabelComment.setText(cholestoralHDLReport);
-
         } catch (NumberFormatException e) {
             cholesotralHDLLabelComment.setText("Invalid input. Please enter a valid number.");
         }
@@ -173,13 +155,9 @@ public class FXMLDocumentController implements Initializable {
     void handleCholestoralLDLButtonAction(ActionEvent event) {
         try {
             double cholestoralLDL = Double.parseDouble(cholestoralLDLTextField.getText());
-
             assessment.setCholestoralLDL(cholestoralLDL);
-
             String cholestoralLDLReport = assessment.cholesterolLDLReport();
-
             cholestoralLDLLabelComment.setText(cholestoralLDLReport);
-
         } catch (NumberFormatException e) {
             cholestoralLDLLabelComment.setText("Invalid input. Please enter a valid number.");
         }
@@ -189,13 +167,9 @@ public class FXMLDocumentController implements Initializable {
     void handleTriglycerideButtonAction(ActionEvent event) {
         try {
             double triglyceride = Double.parseDouble(triglycerideTextField.getText());
-
             assessment.setTriglyceride(triglyceride);
-
             String triglycerideReport = assessment.triglycerideReport();
-
             triglycerideLabelComment.setText(triglycerideReport);
-
         } catch (NumberFormatException e) {
             triglycerideLabelComment.setText("Invalid input. Please enter a valid number.");
         }
@@ -209,7 +183,6 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     void handleLoadButtonAction(ActionEvent event) {
         try {
-            // Get the file name from the fileNameTextField
             String fileName = fileNameTextField.getText();
 
             if (fileName == null || fileName.isEmpty()) {
@@ -221,7 +194,6 @@ public class FXMLDocumentController implements Initializable {
                 fileName += ".xml";
             }
 
-            // Load the XML file
             File file = new File(fileName);
             if (!file.exists()) {
                 System.out.println("File not found: " + fileName);
@@ -231,7 +203,6 @@ public class FXMLDocumentController implements Initializable {
             XmlMapper xmlMapper = new XmlMapper();
             HealthAssessmentReport report = xmlMapper.readValue(file, HealthAssessmentReport.class);
 
-            // Populate the GUI fields with the loaded data
             patientNameTextField.setText(report.getPatientName());
             bloodPressureTextField.setText(String.valueOf(report.getBloodPressure()));
             bodyMassIndexTextField.setText(String.valueOf(report.getBodyMassIndex()));
@@ -240,7 +211,6 @@ public class FXMLDocumentController implements Initializable {
             bloodGlucoseLevelTextField.setText(String.valueOf(report.getGlucoseBloodSugar()));
             triglycerideTextField.setText(String.valueOf(report.getTriglyceride()));
 
-            // Populate the comments section
             bloodPressureLabelComment.setText(report.getBloodPressureComment());
             bodyMassIndexLabelComment.setText(report.getBodyMassIndexComment());
             cholestoralLDLLabelComment.setText(report.getCholestoralLDLComment());
@@ -248,7 +218,6 @@ public class FXMLDocumentController implements Initializable {
             bloodGlucoseLevelComment.setText(report.getGlucoseBloodSugarComment());
             triglycerideLabelComment.setText(report.getTriglycerideComment());
 
-            System.out.println("Report loaded successfully!");
 
         } catch (Exception e) {
             System.out.println("Error loading the report: " + e.getMessage());
@@ -259,7 +228,6 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     void handleSaveButtonAction(ActionEvent event) {
         try {
-            // Get the values from the GUI text fields
             String patientName = patientNameTextField.getText();
             double bloodPressure = Double.parseDouble(bloodPressureTextField.getText());
             double bodyMassIndex = Double.parseDouble(bodyMassIndexTextField.getText());
@@ -268,7 +236,6 @@ public class FXMLDocumentController implements Initializable {
             double glucoseBloodSugar = Double.parseDouble(bloodGlucoseLevelTextField.getText());
             double triglyceride = Double.parseDouble(triglycerideTextField.getText());
 
-            // Update the assessment object with the new values
             assessment.setBloodPressure(bloodPressure);
             assessment.setBodyMassIndex(bodyMassIndex);
             assessment.setCholestoralLDL(cholestoralLDL);
@@ -276,7 +243,6 @@ public class FXMLDocumentController implements Initializable {
             assessment.setGlucoseBloodSugar(glucoseBloodSugar);
             assessment.setTriglyceride(triglyceride);
 
-            // Generate the comments based on the entered values
             String bloodPressureComment = assessment.bloodPressureReport();
             String bodyMassIndexComment = assessment.bodyMassIndexReport();
             String cholestoralLDLComment = assessment.cholesterolLDLReport();
@@ -284,7 +250,6 @@ public class FXMLDocumentController implements Initializable {
             String glucoseBloodSugarComment = assessment.glucoseBloodSugarReport();
             String triglycerideComment = assessment.triglycerideReport();
 
-            // Create the HealthAssessmentReport object with the data and comments
             HealthAssessmentReport report = new HealthAssessmentReport();
             report.setPatientName(patientName);
             report.setBloodPressure(bloodPressure);
@@ -299,17 +264,13 @@ public class FXMLDocumentController implements Initializable {
             report.setGlucoseBloodSugarComment(glucoseBloodSugarComment);
             report.setTriglyceride(triglyceride);
             report.setTriglycerideComment(triglycerideComment);
+            
+            String fileName = patientName + "_report.xml";
+            File file = new File(fileName);
 
-            // Choose a file to save the XML (you can allow user input for the file name)
-            File file = new File("health_assessment_report.xml");
-
-            // Use Jackson's XmlMapper to write the object to the XML file
             XmlMapper xmlMapper = new XmlMapper();
             xmlMapper.writeValue(file, report);
-
-            // Provide feedback to the user
-            System.out.println("Report saved successfully!");
-
+            
         } catch (NumberFormatException e) {
             System.out.println("Please enter valid numeric values.");
         } catch (Exception e) {
@@ -328,7 +289,6 @@ public class FXMLDocumentController implements Initializable {
         bloodGlucoseLevelTextField.clear();
         triglycerideTextField.clear();
 
-        // Clear all comment labels
         bloodPressureLabelComment.setText("");
         bodyMassIndexLabelComment.setText("");
         cholestoralLDLLabelComment.setText("");
@@ -336,7 +296,6 @@ public class FXMLDocumentController implements Initializable {
         bloodGlucoseLevelComment.setText("");
         triglycerideLabelComment.setText("");
 
-        // Optionally clear the file name input and report status label
         fileNameTextField.clear();
         reportStatusLabel.setText("");
     }

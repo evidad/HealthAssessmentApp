@@ -7,67 +7,39 @@
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="healthassessmentapp.FXMLDocumentController">
    <children>
-      <!-- Main Title -->
       <Label layoutX="250.0" layoutY="20.0" style="-fx-font-size: 22px; -fx-font-weight: bold;" text="Individual Health Assessment" />
-
-      <!-- Patient Information -->
       <Label layoutX="80.0" layoutY="80.0" style="-fx-font-size: 14px;" text="Patient Name:" />
       <TextField fx:id="patientNameTextField" layoutX="200.0" layoutY="75.0" prefWidth="250.0" />
-
-      <!-- Health Data Labels -->
       <Label layoutX="80.0" layoutY="130.0" style="-fx-font-size: 14px;" text="Blood Pressure:" />
       <Label layoutX="80.0" layoutY="180.0" style="-fx-font-size: 14px;" text="Body Mass Index:" />
       <Label layoutX="80.0" layoutY="230.0" style="-fx-font-size: 14px;" text="Cholesterol LDL:" />
       <Label layoutX="80.0" layoutY="280.0" style="-fx-font-size: 14px;" text="Cholesterol HDL:" />
       <Label layoutX="80.0" layoutY="330.0" prefWidth="127.0" style="-fx-font-size: 14px;" text="Blood Glucose:" wrapText="true" />
       <Label layoutX="80.0" layoutY="380.0" style="-fx-font-size: 14px;" text="Triglyceride:" />
-
-      <!-- Health Data Input Fields -->
       <TextField fx:id="bloodPressureTextField" layoutX="200.0" layoutY="125.0" prefWidth="120.0" />
       <TextField fx:id="bodyMassIndexTextField" layoutX="200.0" layoutY="175.0" prefWidth="120.0" />
       <TextField fx:id="cholestoralLDLTextField" layoutX="200.0" layoutY="225.0" prefWidth="120.0" />
       <TextField fx:id="cholestoralHDLTextField" layoutX="200.0" layoutY="275.0" prefWidth="120.0" />
       <TextField fx:id="bloodGlucoseLevelTextField" layoutX="200.0" layoutY="325.0" prefWidth="120.0" />
       <TextField fx:id="triglycerideTextField" layoutX="200.0" layoutY="375.0" prefWidth="120.0" />
-
-      <!-- Enter Buttons -->
       <Button fx:id="bloodPressureButton" layoutX="340.0" layoutY="125.0" onAction="#handleBloodPressureButtonAction" prefWidth="75.0" text="Enter" />
       <Button fx:id="bodyMassIndexButton" layoutX="340.0" layoutY="175.0" onAction="#handleBodyMassIndexButtonAction" prefWidth="75.0" text="Enter" />
       <Button fx:id="cholestoralLDLButton" layoutX="340.0" layoutY="225.0" onAction="#handleCholestoralLDLButtonAction" prefWidth="75.0" text="Enter" />
       <Button fx:id="cholestoralHDLButton" layoutX="340.0" layoutY="275.0" onAction="#handleCholestoralHDLButtonAction" prefWidth="75.0" text="Enter" />
       <Button fx:id="bloodGlucoseLevelButton" layoutX="340.0" layoutY="325.0" onAction="#handleBloodGlucoseLevelButtonAction" prefWidth="75.0" text="Enter" />
       <Button fx:id="triglycerideButton" layoutX="340.0" layoutY="375.0" onAction="#handleTriglycerideButtonAction" prefWidth="75.0" text="Enter" />
-
-      <!-- Comments Label (Centered) -->
       <Label fx:id="commentsLabel" layoutX="540.0" layoutY="85.0" prefHeight="32.0" prefWidth="95.0" alignment="CENTER" text="Comments" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
-
-      <!-- Comments Labels -->
       <Label fx:id="bloodPressureLabelComment" layoutX="440.0" layoutY="125.0" prefWidth="300.0" />
       <Label fx:id="bodyMassIndexLabelComment" layoutX="440.0" layoutY="175.0" prefWidth="300.0" />
       <Label fx:id="cholestoralLDLLabelComment" layoutX="440.0" layoutY="225.0" prefWidth="300.0" />
       <Label fx:id="cholesotralHDLLabelComment" layoutX="440.0" layoutY="275.0" prefWidth="300.0" />
       <Label fx:id="bloodGlucoseLevelComment" layoutX="440.0" layoutY="325.0" prefWidth="300.0" />
       <Label fx:id="triglycerideLabelComment" layoutX="440.0" layoutY="375.0" prefWidth="300.0" />
-
-<!-- File Name TextField -->
-<TextField fx:id="fileNameTextField" layoutX="200.0" layoutY="480.0" prefWidth="180.0" promptText="Enter file name" />
-
-<!-- Load Button -->
-<Button fx:id="loadButton" layoutX="400.0" layoutY="480.0" onAction="#handleLoadButtonAction" prefWidth="75.0" text="Load" />
-
-<!-- Save Button -->
-<Button fx:id="saveButton" layoutX="490.0" layoutY="480.0" onAction="#handleSaveButtonAction" prefWidth="75.0" text="Save" />
-
-<!-- Clear Button -->
-<Button fx:id="clearButton" layoutX="580.0" layoutY="480.0" onAction="#handleClearButtonAction" prefWidth="75.0" text="Clear" />
-
-<!-- Exit Button -->
-<Button fx:id="exitButton" layoutX="670.0" layoutY="480.0" onAction="#handleExitButtonAction" prefWidth="75.0" text="Exit" />
-
-
-
-
-      <!-- Status Label for Report -->
+      <TextField fx:id="fileNameTextField" layoutX="200.0" layoutY="480.0" prefWidth="180.0" promptText="Enter file name" />
+      <Button fx:id="loadButton" layoutX="400.0" layoutY="480.0" onAction="#handleLoadButtonAction" prefWidth="75.0" text="Load" />
+      <Button fx:id="saveButton" layoutX="490.0" layoutY="480.0" onAction="#handleSaveButtonAction" prefWidth="75.0" text="Save" />
+      <Button fx:id="clearButton" layoutX="580.0" layoutY="480.0" onAction="#handleClearButtonAction" prefWidth="75.0" text="Clear" />
+      <Button fx:id="exitButton" layoutX="670.0" layoutY="480.0" onAction="#handleExitButtonAction" prefWidth="75.0" text="Exit" />
       <Label fx:id="reportStatusLabel" alignment="CENTER" layoutX="200.0" layoutY="500.0" prefWidth="400.0" style="-fx-font-size: 14px;" />
    </children>
 </AnchorPane>

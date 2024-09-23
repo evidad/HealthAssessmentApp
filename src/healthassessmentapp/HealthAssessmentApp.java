@@ -14,6 +14,7 @@ import javafx.stage.Stage;
  *
  * @author errol
  */
+
 public class HealthAssessmentApp extends Application {
     
     @Override
