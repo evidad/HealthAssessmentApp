@@ -103,6 +103,9 @@ public class FXMLDocumentController implements Initializable {
     private TextField fileNameTextField;
 
     @FXML
+    private Button clearButton;
+
+    @FXML
     void handleBloodGlucoseLevelButtonAction(ActionEvent event) {
         try {
             double bloodGlucoseLevel = Double.parseDouble(bloodGlucoseLevelTextField.getText());
@@ -313,6 +316,29 @@ public class FXMLDocumentController implements Initializable {
             System.out.println("Error saving the report: " + e.getMessage());
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    void handleClearButtonAction(ActionEvent event) {
+        patientNameTextField.clear();
+        bloodPressureTextField.clear();
+        bodyMassIndexTextField.clear();
+        cholestoralLDLTextField.clear();
+        cholestoralHDLTextField.clear();
+        bloodGlucoseLevelTextField.clear();
+        triglycerideTextField.clear();
+
+        // Clear all comment labels
+        bloodPressureLabelComment.setText("");
+        bodyMassIndexLabelComment.setText("");
+        cholestoralLDLLabelComment.setText("");
+        cholesotralHDLLabelComment.setText("");
+        bloodGlucoseLevelComment.setText("");
+        triglycerideLabelComment.setText("");
+
+        // Optionally clear the file name input and report status label
+        fileNameTextField.clear();
+        reportStatusLabel.setText("");
     }
 
 }
