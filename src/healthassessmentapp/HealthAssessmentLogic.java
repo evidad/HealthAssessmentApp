@@ -135,7 +135,7 @@ public class HealthAssessmentLogic {
             return glucoseBloodSugarComments[2]; // Marginal
         } else if (this.glucoseBloodSugar >= 270 && this.glucoseBloodSugar <= 310) {
             return glucoseBloodSugarComments[3]; // Poor
-        } else if (this.glucoseBloodSugar >= 340 && this.glucoseBloodSugar <= 370) {
+        } else if (this.glucoseBloodSugar >= 340) {
             return glucoseBloodSugarComments[4]; // Out of control
         } else {
             return "Please enter a valid glucose value";
@@ -177,7 +177,7 @@ public class HealthAssessmentLogic {
             return triglycerideComments[1]; // High
         } else if (this.triglyceride >= 150 && this.triglyceride <= 249) {
             return triglycerideComments[2]; // Borderline High
-        } else if (this.triglyceride < 150) {
+        } else if (this.triglyceride < 150 && this.triglyceride >= 50) {
             return triglycerideComments[3]; // Optimal
         } else {
             return "Please enter a valid triglyceride value";

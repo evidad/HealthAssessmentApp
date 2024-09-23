@@ -14,12 +14,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import java.io.File;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 /**
  *
  * @author errol
  */
-
 public class FXMLDocumentController implements Initializable {
 
     HealthAssessmentLogic assessment;
@@ -110,6 +111,9 @@ public class FXMLDocumentController implements Initializable {
             assessment.setGlucoseBloodSugar(bloodGlucoseLevel);
             String bloodGlucoseLevelReport = assessment.glucoseBloodSugarReport();
             bloodGlucoseLevelComment.setText(bloodGlucoseLevelReport);
+            if (bloodGlucoseLevel > 370 || bloodGlucoseLevel < 70) {
+                showAlert("Warning", "Your blood glucose is at a dangerous level! Please see a doctor.");
+            }
         } catch (NumberFormatException e) {
             bloodGlucoseLevelComment.setText("Invalid input. Please enter a valid number.");
         }
@@ -122,6 +126,9 @@ public class FXMLDocumentController implements Initializable {
             assessment.setBloodPressure(bloodPressure);
             String bloodPressureReport = assessment.bloodPressureReport();
             bloodPressureLabelComment.setText(bloodPressureReport);
+            if (bloodPressure > 210 || bloodPressure < 50) {
+                showAlert("Warning", "Your blood pressure is at a dangerous level! Please see a doctor.");
+            }
         } catch (NumberFormatException e) {
             bloodPressureLabelComment.setText("Invalid input. Please enter a valid number.");
         }
@@ -134,6 +141,9 @@ public class FXMLDocumentController implements Initializable {
             assessment.setBodyMassIndex(bodyMassIndex);
             String bodyMassIndexReport = assessment.bodyMassIndexReport();
             bodyMassIndexLabelComment.setText(bodyMassIndexReport);
+            if (bodyMassIndex < 16 || bodyMassIndex > 40) {
+                showAlert("Warning", "Your BMI is at a dangerous level! Please see a doctor.");
+            }
         } catch (NumberFormatException e) {
             bodyMassIndexLabelComment.setText("Invalid input. Please enter a valid number.");
         }
@@ -146,6 +156,9 @@ public class FXMLDocumentController implements Initializable {
             assessment.setCholestoralHDL(cholestoralHDL);
             String cholestoralHDLReport = assessment.cholesterolHDLReport();
             cholesotralHDLLabelComment.setText(cholestoralHDLReport);
+            if (cholestoralHDL < 40) {
+                showAlert("Warning", "Your cholestoral HDL is at a dangerous level! Please see a doctor");
+            }
         } catch (NumberFormatException e) {
             cholesotralHDLLabelComment.setText("Invalid input. Please enter a valid number.");
         }
@@ -158,6 +171,9 @@ public class FXMLDocumentController implements Initializable {
             assessment.setCholestoralLDL(cholestoralLDL);
             String cholestoralLDLReport = assessment.cholesterolLDLReport();
             cholestoralLDLLabelComment.setText(cholestoralLDLReport);
+            if (cholestoralLDL > 160 || cholestoralLDL < 50) {
+                showAlert("Warning", "Your cholestoral LDL is at a dangerous level! Please see a doctor");
+            }
         } catch (NumberFormatException e) {
             cholestoralLDLLabelComment.setText("Invalid input. Please enter a valid number.");
         }
@@ -170,9 +186,20 @@ public class FXMLDocumentController implements Initializable {
             assessment.setTriglyceride(triglyceride);
             String triglycerideReport = assessment.triglycerideReport();
             triglycerideLabelComment.setText(triglycerideReport);
+            if (triglyceride > 500 || triglyceride < 50) {
+                showAlert("Warning", "Your triglyceride is at a dangerous level! Please see a doctor");
+        }
         } catch (NumberFormatException e) {
             triglycerideLabelComment.setText("Invalid input. Please enter a valid number.");
         }
+    }
+
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
     @FXML
@@ -217,7 +244,6 @@ public class FXMLDocumentController implements Initializable {
             cholesotralHDLLabelComment.setText(report.getCholestoralHDLComment());
             bloodGlucoseLevelComment.setText(report.getGlucoseBloodSugarComment());
             triglycerideLabelComment.setText(report.getTriglycerideComment());
-
 
         } catch (Exception e) {
             System.out.println("Error loading the report: " + e.getMessage());
@@ -264,13 +290,13 @@ public class FXMLDocumentController implements Initializable {
             report.setGlucoseBloodSugarComment(glucoseBloodSugarComment);
             report.setTriglyceride(triglyceride);
             report.setTriglycerideComment(triglycerideComment);
-            
+
             String fileName = patientName + "_report.xml";
             File file = new File(fileName);
 
             XmlMapper xmlMapper = new XmlMapper();
             xmlMapper.writeValue(file, report);
-            
+
         } catch (NumberFormatException e) {
             System.out.println("Please enter valid numeric values.");
         } catch (Exception e) {
